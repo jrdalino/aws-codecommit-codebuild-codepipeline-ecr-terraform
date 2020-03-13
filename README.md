@@ -34,8 +34,19 @@ $ terraform apply
 - Clone empty repository. Make sure CodeCommit Git credentials have bene configured. Note: New repositories are **not** created with their default branch. Once the module has ran you must clone the repository, add files, commit changes locally and then push to initialize the repository.
 ```
 $ cd ~/environment
-$ git clone https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/myproject-customer-service
+$ git clone https://git-codecommit.ap-southeast-2.amazonaws.com/v1/repos/myproject-customer-service && cd ~/environment/myproject-customer-service
 ```
+- Activate virtual environment, install flask and flask-cors
+```bash
+$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $ venv/bin/pip install flask flask-cors boto3
+```
+- Generate ~/environment/myproject-customer-service/flaskr/requirements.txt
+```bash
+$ pip freeze > requirements.txt
+```
+- Check Docker File ~/environment/myproject-customer-service/Dockerfile
 - Copy code from Github repo to CodeCommit repo
 ```
 $ rsync -rv --exclude=.git ~/environment/myproject-customer-service-python/ ~/environment/myproject-customer-service/
@@ -46,6 +57,11 @@ $ cd ~/environment/myproject-customer-service
 $ git add .
 $ git commit -m "Initial Commit"
 $ git push origin master
+```
+- Deploy Kubernetes Service
+```
+$ cd ~/environment/myproject-customer-service/kubernetes
+$ kubectl apply -f service.yml
 ```
 
 ## (Optional) Cleanup
