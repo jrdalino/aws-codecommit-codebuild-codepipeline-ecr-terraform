@@ -1,4 +1,4 @@
-# Terraform module to provision a CI/CD Pipeline using AWS Managed Services
+# Terraform module to provision a CI/CD Pipeline using AWS Managed Services (Customer Service)
 
 ## This creates the following resources:
 - CodeCommit
