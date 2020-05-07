@@ -1,6 +1,6 @@
 # General
-aws_region  = "ap-southeast-2"
-aws_account = "222337787619"
+aws_region  = "ap-southeast-1"
+aws_account = "707538076348"
 
 # CodeCommit Repository
 codecommit_repo_name = "myproject-customer-service"
@@ -9,7 +9,7 @@ codecommit_repo_name = "myproject-customer-service"
 ecr_repo_name = "myproject-customer-service"
 
 # S3 Bucket for Artifacts
-s3_bucket_artifacts_name = "222337787619-myproject-customer-service-codepipeline"
+s3_bucket_artifacts_name = "707538076348-myproject-customer-service-codepipeline"
 
 # CodeBuild
 codebuild_service_role_name        = "myproject-customer-service-codebuild-service-role"
